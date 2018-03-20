@@ -15,7 +15,6 @@
   display: none;
 }
 
-
-img {
-  margin: auto;
+.success {
+  display: none;
 }
