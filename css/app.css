@@ -1,0 +1,21 @@
+#game {
+  width: 400px;
+  border: solid;
+}
+
+.card {
+  border: solid;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: auto;
+}
+
+.flipped img {
+  display: none;
+}
+
+
+img {
+  margin: auto;
+}
