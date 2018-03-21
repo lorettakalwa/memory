@@ -35,7 +35,7 @@ function initialize(){
   for (i = 0; i < cardsN; i++){
     game.children[i].innerHTML = "<img src=\"svg\\" + symbolsShuffled[i] + ".png\">";
   };
-  //preparing the deck if this is not the first game after
+  //preparing the deck if this is not the first game
   if (n !== 0) {
     for (i = 0; i < cardsN; i++){
       game.children[i].classList.add("flipped");
@@ -43,6 +43,7 @@ function initialize(){
     };
     toggleClass(game,"success");
     toggleClass(success,"success");
+    cardsGuessed = Array(cardsN).fill(0);
   };
   n += 1;
 };
@@ -98,3 +99,6 @@ function check(clicked){
 //Event listener on click
 game.addEventListener("click",function(event) {check(event.target);});
 button.addEventListener("click",function() {initialize();});
+
+//initializing the game
+initialize();
