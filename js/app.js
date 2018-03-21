@@ -3,8 +3,10 @@ let clicks = 0;
 let card = -1;
 let card1 = -1;
 let card2 = -1;
+let n = 0;
 const game = document.getElementById("game");
 const success = document.getElementById("success");
+const button = document.getElementById("button");
 const symbols = ["a","a","b","b","c","c","d","d","e","e","f","f","g","g","h","h"];
 const cardsN = symbols.length;
 let cardsGuessed = Array(cardsN).fill(0);
@@ -33,6 +35,16 @@ function initialize(){
   for (i = 0; i < cardsN; i++){
     game.children[i].innerHTML = "<img src=\"svg\\" + symbolsShuffled[i] + ".png\">";
   };
+  //preparing the deck if this is not the first game after
+  if (n !== 0) {
+    for (i = 0; i < cardsN; i++){
+      game.children[i].classList.add("flipped");
+      game.children[i].classList.remove("guessed");
+    };
+    toggleClass(game,"success");
+    toggleClass(success,"success");
+  };
+  n += 1;
 };
 
 //Flipping the card
@@ -85,3 +97,4 @@ function check(clicked){
 
 //Event listener on click
 game.addEventListener("click",function(event) {check(event.target);});
+button.addEventListener("click",function() {initialize();});
