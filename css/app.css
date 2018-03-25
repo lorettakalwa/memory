@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: Lato;
 }
 
 *,
@@ -48,11 +49,12 @@ container {
   justify-content: center;
   align-items: center;
   box-shadow: 6px 0 8px -2px rgba(0, 0, 0, 0.25), -6px 0 4px -2px rgba(0, 0, 0, 0.2);
+  margin: 5px;
 }
 
 div {
-  background-color: rgb(158, 202, 237);
-  border-color: rgb(158, 202, 237);
+  background-color: rgb(226, 226, 220);
+  border-color: rgb(226, 226, 220);
 }
 
 .flipped {
@@ -76,28 +78,33 @@ img {
   margin: 25px;
 }
 
-.success {
+.noSuccess {
   display: none;
 }
 
 #success {
   position: absolute;
-  top: 40%;
+  top: 30%;
   width: 100%;
   background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-}
-
-#success h1 {
   color: white;
 }
 
 #button {
   width: 150px;
-  margin-botom: 10px;
+  margin-bottom: 30px;
   text-align: center;
-  padding: 10px;
   border-radius: 20px;
-  linear-gradient(45deg, #B388EB, #8093F1);
+  background-color: rgb(112, 112, 108);
+  float: inherit;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#timeSuccess, #ratingSuccess, #movesSuccess, #bestScore {
+  text-align: center;
 }
