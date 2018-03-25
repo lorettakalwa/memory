@@ -28,7 +28,7 @@ container {
 }
 
 #game {
-  width: 400px;
+  max-width: 400px;
   min-height: 400px;
   display: flex;
   flex-wrap: wrap;
@@ -40,7 +40,6 @@ container {
 }
 
 .card {
-  border: solid;
   width: 85px;
   height: 85px;
   border-radius: 5%;
@@ -52,11 +51,13 @@ container {
 }
 
 div {
-  background-color: yellow;
+  background-color: rgb(158, 202, 237);
+  border-color: rgb(158, 202, 237);
 }
 
 .flipped {
   background-color: rgb(77,135,181);
+  border-color: rgb(77,135,181);
 }
 
 .flipped img {
@@ -65,7 +66,8 @@ div {
 
 .guessed {
   background-color: rgb(86,177,63);
-  transform: scale3d(0.8, 0.8, 0.8);
+  border-color: rgb(86,177,63);
+  transform: scale(0.8);
   transition-duration: 2s;
 }
 
@@ -76,4 +78,26 @@ img {
 
 .success {
   display: none;
+}
+
+#success {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+#success h1 {
+  color: white;
+}
+
+#button {
+  width: 150px;
+  margin-botom: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  linear-gradient(45deg, #B388EB, #8093F1);
 }

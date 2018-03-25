@@ -41,9 +41,12 @@ function initialize(){
       game.children[i].classList.add("flipped");
       game.children[i].classList.remove("guessed");
     };
-    toggleClass(game,"success");
     toggleClass(success,"success");
     cardsGuessed = Array(cardsN).fill(0);
+    clicks = 0;
+    card = -1;
+    card1 = -1;
+    card2 = -1;
   };
   n += 1;
 };
@@ -69,6 +72,16 @@ function check(clicked){
   if ( cardsGuessed[card] == 1 || card1 == card ) {
     return;
   }
+  if ( clicks == 0 ){
+    let start = new Date().getTime();
+    let timer = setInterval(function() {
+    let now = new Date().getTime();
+    let timePassed = now - start;
+    let minutes = Math.floor((timePassed % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timePassed % (1000 * 60)) / 1000);
+    document.getElementById("timeGame").innerHTML = minutes + ":" + seconds;
+  }, 1000);
+  }
   clicks += 1;
   toggleClass(clicked,"flipped");
   if ( clicks % 2 === 1){
@@ -82,8 +95,8 @@ function check(clicked){
       cardsGuessed[card1] = 1;
       cardsGuessed[card2] = 1;
       if ( cardsGuessed.reduce(sum,0) === cardsN ) {
-        toggleClass(game,"success");
         toggleClass(success,"success");
+        clearInterval(timer);
       };
     } else {
       setTimeout(function() {toggleClass(clicked,"flipped");}, 1000);
