@@ -14,6 +14,7 @@ const timeSuccess = document.getElementById("timeSuccess");
 const ratingSuccess = document.getElementById("ratingSuccess");
 const movesSuccess = document.getElementById("movesSuccess");
 const bestScore = document.getElementById("bestScore");
+const reset = document.getElementById("reset");
 const symbols = ["a","a","b","b","c","c","d","d","e","e","f","f","g","g","h","h"];
 const cardsN = symbols.length;
 let cardsGuessed = Array(cardsN).fill(0);
@@ -52,7 +53,8 @@ function initialize(){
       game.children[i].classList.add("flipped");
       game.children[i].classList.remove("guessed");
     };
-    toggleClass(success,"noSuccess");
+    clearInterval(timer);
+    success.classList.add("noSuccess");
     cardsGuessed = Array(cardsN).fill(0);
     clicks = 0;
     card = -1;
@@ -149,6 +151,7 @@ function check(clicked){
 //Event listener on click
 game.addEventListener("click",function(event) {check(event.target);});
 button.addEventListener("click",function() {initialize();});
+reset.addEventListener("click",function() {n += 1; initialize();});
 
 //initializing the game
 initialize();
